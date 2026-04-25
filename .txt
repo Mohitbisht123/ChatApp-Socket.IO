@@ -1,0 +1,7 @@
+.....Message Model....
+
+Ankush(sender)===>hi Akil
+
+senderId
+receiverId
+message=""
