@@ -7,7 +7,7 @@ const Users = () => {
   console.log(allUsers);
   return (
     <div>
-      <h1 className="px-8 py-2 text-white font-semibold bg-slate-800 rounded-md">Messages</h1>
+      <h1 className="px-6 py-2 mx-2 mt-2 text-white font-semibold bg-slate-800/60 rounded-lg text-sm">Messages</h1>
       <div 
   className="py-2 flex-1 overflow-y-auto no-scrollbar"
   style={{ maxHeight: "calc(84vh - 10vh)" }}

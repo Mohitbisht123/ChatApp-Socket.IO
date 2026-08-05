@@ -1,44 +1,40 @@
-import { createContext, useEffect, useState, useContext } from "react";
-import io from "socket.io-client";
+import { createContext, useContext, useEffect, useState } from "react";
+import { io } from "socket.io-client";
 import { useAuth } from "./AuthProvider";
 
-export const socketContext = createContext();
+export const SocketContext = createContext();
 
-// custom hook
-export const useSocketContext = () => {
-    return useContext(socketContext);
-};
+export const useSocketContext = () => useContext(SocketContext);
 
 export const SocketProvider = ({ children }) => {
-    const [socket, setSocket] = useState(null);
-    const [onlineUsers, setOnlineUsers] = useState([]);
-    const [authUser] = useAuth();
+  const [socket, setSocket] = useState(null);
+  const [onlineUsers, setOnlineUsers] = useState([]);
+  const [authUser] = useAuth();
 
-    useEffect(() => {
-        if (!authUser) return;
+  useEffect(() => {
+    if (!authUser?._id) return;
 
-        const newSocket = io("http://localhost:4002", {
-            query: {
-                userId: authUser.user._id,
-            },
-        });
+    const newSocket = io("http://localhost:4002", {
+      query: {
+        userId: authUser._id,
+      },
+      withCredentials: true,
+    });
 
-        setSocket(newSocket);
+    setSocket(newSocket);
 
-        newSocket.on("getOnlineUsers", (users) => {
-            setOnlineUsers(users);
-        });
+    newSocket.on("getOnlineUsers", (users) => {
+      setOnlineUsers(users);
+    });
 
-        // cleanup
-        return () => {
-            newSocket.off("getOnlineUsers");
-            newSocket.close();
-        };
-    }, [authUser]);
+    return () => {
+      newSocket.disconnect();
+    };
+  }, [authUser]);
 
-    return (
-        <socketContext.Provider value={{ socket, onlineUsers }}>
-            {children}
-        </socketContext.Provider>
-    );
+  return (
+    <SocketContext.Provider value={{ socket, onlineUsers }}>
+      {children}
+    </SocketContext.Provider>
+  );
 };

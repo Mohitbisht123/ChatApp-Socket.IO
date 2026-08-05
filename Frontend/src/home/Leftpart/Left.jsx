@@ -4,7 +4,7 @@ import Users from './Users'
 import Logout from './Logout'
 
 const Left = () => {
-  return <div className="w-[30%] border border-white bg-black text-gray-300">
+  return <div className="w-[30%] border border-white/10 bg-slate-950 text-gray-300 flex flex-col">
     <Search/>
    <div className="flex-1 overflow-y-auto no-scrollbar"  style={{ minHeight: "calc(84vh - 10vh)" }}>
          <Users/>

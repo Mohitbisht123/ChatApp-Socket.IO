@@ -13,7 +13,7 @@ const Right = () => {
       {!selectedConversation ? (
         <NoChatSelected />
       ) : (
-        <div className="flex flex-col h-full w-full border border-white bg-slate-900 text-gray-300">
+        <div className="flex flex-col h-full w-full border border-white/10 bg-slate-900 text-gray-300">
           <Chatuser />
 
           <div
@@ -36,9 +36,9 @@ const NoChatSelected = () => {
   const { authUser } = useAuth();
 
   return (
-    <div className="flex h-full items-center justify-center text-white">
-      <h1>
-        Welcome <span>{authUser?.fullname}</span>
+    <div className="flex h-full items-center justify-center text-center bg-slate-900 text-white px-6">
+      <h1 className="text-slate-300">
+        Welcome <span className="text-violet-400 font-semibold">{authUser?.fullname}</span>
         <br />
         No chat selected, please start conversation by selecting someone.
       </h1>

@@ -27,14 +27,14 @@ const Search = () => {
   };
 
   return (
-    <div className="h-[10vh]">
+    <div className="h-[10vh] border-b border-white/10 bg-slate-950">
       <div className="px-6 py-4">
         <form onSubmit={handleSubmit}>
           <div className="flex space-x-3">
-            <label className="border-[1px] border-gray-700 bg-slate-900 rounded-lg p-3 flex items-center gap-2 w-[80%]">
+            <label className="border border-white/10 bg-slate-800/60 focus-within:border-violet-400 rounded-xl p-3 flex items-center gap-2 w-[80%] transition-colors">
               <input
                 type="text"
-                className="grow outline-none bg-transparent"
+                className="grow outline-none bg-transparent text-white placeholder-slate-500 text-sm"
                 placeholder="Search"
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
@@ -42,7 +42,7 @@ const Search = () => {
             </label>
 
             <button type="submit">
-              <FaSearch className="text-5xl p-2 hover:bg-gray-600 rounded-full duration-300" />
+              <FaSearch className="text-lg text-violet-400 p-2 w-11 h-11 hover:bg-violet-500/10 rounded-full duration-300 box-content" />
             </button>
           </div>
         </form>

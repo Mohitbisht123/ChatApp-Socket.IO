@@ -4,7 +4,7 @@ const Message = ({ message }) => {
   if (!message) return null;
 
   const authUser = JSON.parse(localStorage.getItem("ChatApp"));
-  const myId = authUser?._id || authUser?.user?._id;
+const myId = authUser?._id;
 
   const itsMe =
     message?.senderId?.toString() === myId?.toString();
@@ -17,17 +17,19 @@ const Message = ({ message }) => {
   });
 
   return (
-    <div className="p-4">
-      <div className={`chat ${itsMe ? "chat-end" : "chat-start"}`}>
+    <div className="px-4 py-1.5">
+      <div className={`flex flex-col ${itsMe ? "items-end" : "items-start"}`}>
         <div
-          className={`chat-bubble text-white ${
-            itsMe ? "bg-blue-500" : ""
+          className={`text-sm px-3.5 py-2 rounded-2xl max-w-[70%] ${
+            itsMe
+              ? "bg-violet-500 text-white rounded-br-sm"
+              : "bg-slate-800 text-slate-100 rounded-bl-sm"
           }`}
         >
           {message.message}
         </div>
 
-        <div className="chat-footer text-xs opacity-70">
+        <div className="text-[11px] text-slate-500 mt-1 px-1">
           {formattedTime}
         </div>
       </div>

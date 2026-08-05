@@ -14,30 +14,30 @@ const User = ({ user }) => {
 
   return (
     <div
-      className={`hover:bg-slate-600 duration-300 ${
-        isSelected ? "bg-slate-700" : ""
+      className={`duration-300 ${
+        isSelected ? "bg-violet-500/15 border-l-2 border-violet-400" : "border-l-2 border-transparent"
       }`}
       onClick={() => setSelectedConversation(user)}
     >
-      <div className="flex space-x-4 px-8 py-3 hover:bg-slate-700 duration-300 cursor-pointer">
+      <div className="flex space-x-4 px-6 py-3 hover:bg-white/5 duration-300 cursor-pointer">
         
         {/* Avatar with custom green dot */}
         <div className="relative">
           <img
-            className="w-12 h-12 rounded-full"
+            className="w-12 h-12 rounded-full ring-1 ring-white/10"
             src="https://img.daisyui.com/images/profile/demo/spiderperson@192.webp"
             alt="user"
           />
 
           {isOnline && (
-            <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 rounded-full border-2 border-white"></span>
+            <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-500 rounded-full border-2 border-slate-950"></span>
           )}
         </div>
 
         {/* User info */}
         <div>
-          <h1 className="font-bold">{user.fullname}</h1>
-          <span className="text-sm text-gray-300">{user.email}</span>
+          <h1 className="font-semibold text-white">{user.fullname}</h1>
+          <span className="text-sm text-slate-400">{user.email}</span>
         </div>
       </div>
     </div>

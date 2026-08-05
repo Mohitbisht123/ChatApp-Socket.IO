@@ -23,7 +23,7 @@ const Messages = () => {
   const safeMessages = Array.isArray(messages) ? messages : [];
 
   return (
-    <div className="flex-1 overflow-y-auto no-scrollbar">
+    <div className="flex-1 overflow-y-auto no-scrollbar bg-slate-900">
       {loading ? (
         <Loading />
       ) : (
@@ -38,7 +38,7 @@ const Messages = () => {
       )}
 
       {!loading && selectedConversation && safeMessages.length === 0 && (
-        <p className="text-center mt-[20%] text-gray-400">
+        <p className="text-center mt-[20%] text-slate-500 text-sm">
           Say Hi to start the conversation 👋
         </p>
       )}
