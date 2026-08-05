@@ -161,22 +161,6 @@ Hosted on **Render**
 Hosted on **MongoDB Atlas**
 
 ---
-
-## 📸 Screenshots
-
-> Add screenshots inside a folder named `screenshots`.
-
-Example:
-
-```
-screenshots/
-├── login.png
-├── signup.png
-├── chat.png
-```
-
----
-
 ## 🔐 Authentication
 
 * JWT Based Authentication
