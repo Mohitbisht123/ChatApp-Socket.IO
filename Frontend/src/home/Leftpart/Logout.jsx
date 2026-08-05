@@ -13,7 +13,7 @@ const Logout = () => {
 
     try {
       await axios.post(
-        "http://localhost:4002/user/logout",
+        `${import.meta.env.VITE_API_URL}/user/logout`,
         {},
         {
           withCredentials: true,

@@ -22,7 +22,7 @@ const Login = () => {
       password: data.password,
     }
 
-    axios.post("http://localhost:4002/user/login", userInfo, {
+    axios.post(`${import.meta.env.VITE_API_URL}/user/login`, userInfo, {
       withCredentials: true
     })
       .then((response) => {

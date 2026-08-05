@@ -10,7 +10,7 @@ const useGetAllUsers = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          "http://localhost:4002/user/allusers",
+          `${import.meta.env.VITE_API_URL}/user/allusers`,
           {
             withCredentials: true
           }
